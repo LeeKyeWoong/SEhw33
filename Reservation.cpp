@@ -7,7 +7,7 @@ Reservation::Reservation() {
 	// Author: 김승연
 }
 
-Reservation::Reservation(string sellerId, string buyerId, int price, string reserveDate, string gameDate, string home, string away, string seatNum)
+Reservation::Reservation(string sellerId, string buyerId, int price, string reserveDate, string gameDate, string home, string away, string seatNum, bool canShow)
 {
 	//Function: Reservation(string sellerId, string buyerId, int price, string reserveDate, string gameDate, string home, string away, int seatNum)
 	//Description: Reservation 생성자 & 초기화
@@ -22,9 +22,10 @@ Reservation::Reservation(string sellerId, string buyerId, int price, string rese
 	this->homeTeam = home;
 	this->awayTeam = away;
 	this->seatNumber = seatNum;
+	this->canShow = canShow;
 }
 
-void Reservation::makeNewReservation(string sID, string bID, int price, string reservedate, string gamedate, string homeTeam, string awayTeam, string seat) {
+void Reservation::makeNewReservation(string sID, string bID, int price, string reservedate, string gamedate, string homeTeam, string awayTeam, string seat, bool canShow) {
 	// Function: void makeNewReservation(string sID, string bID, int price, string reservedate, string gamedate, string homeTeam, string awayTeam, int seat)
 	// Description: 매개변수로 받은 값들을 가지고 reservation 객체의 값을 설정하는 함수이다.
 	// Created: 2019/05/31
@@ -38,6 +39,7 @@ void Reservation::makeNewReservation(string sID, string bID, int price, string r
 	this->homeTeam = homeTeam;
 	this->awayTeam = awayTeam;
 	this->seatNumber = seat;
+	this->canShow = canShow;
 }
 
 void Reservation::changeAuctionBuyer(string bID, int price, string date) {
@@ -138,4 +140,13 @@ void Reservation::deleteReservation() {
 	reserveDate = "";
 	gameDate = "";
 	homeTeam = awayTeam = seatNumber = "";
+}
+
+bool Reservation::getCanShow() {
+	// Function: bool getCanShow()
+	// Description: 출력을 해도 되는지 리턴하는 함수이다.
+	// Created: 2019/06/06
+	// Author: 김승연
+
+	return this->canShow;
 }

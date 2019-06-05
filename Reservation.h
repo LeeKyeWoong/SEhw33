@@ -19,11 +19,12 @@ private:
 	string homeTeam; // 홈팀
 	string awayTeam; // 어웨이팀
 	string seatNumber; // 좌석 번호
+	bool canShow;     // 예약정보에 출력이 되도 되는가? 즉, 경매시간이 끝났는가?
 
 public:
 	Reservation();
-	Reservation(string sellerId, string buyerId, int price, string reserveDate, string gameDate, string home, string away, string seatNum);
-	void makeNewReservation(string sID, string bID, int price, string reservedate, string gamedate, string homeTeam, string awayTeam, string seat);
+	Reservation(string sellerId, string buyerId, int price, string reserveDate, string gameDate, string home, string away, string seatNum, bool canShow);
+	void makeNewReservation(string sID, string bID, int price, string reservedate, string gamedate, string homeTeam, string awayTeam, string seat, bool canShow);
 	void changeAuctionBuyer(string bID, int price, string date);
 	string getSellerID();
 	string getBuyerID();
@@ -34,4 +35,5 @@ public:
 	string getAwayTeam();
 	string getSeatNumber();
 	void deleteReservation();
+	bool getCanShow();
 };

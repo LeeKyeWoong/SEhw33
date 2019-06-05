@@ -44,7 +44,7 @@ void ParticipateAuctionTicketControl::participateAuction(string date, string awa
 					}
 					// 경매 참여한 사람이 없던 티켓의 경우 새로 예약 객체를 생성한다.
 					resCollect->addReservation(cntTicket->getSellerId(), cntMember->getId(), bidPrice, Tmr->getCurrentTime(),
-						cntTicket->getGameDateNTime(), cntTicket->getHomeTeam(), awayTeam, seatNum);
+						cntTicket->getGameDateNTime(), cntTicket->getHomeTeam(), awayTeam, seatNum, false);
 
 					cout << bidPrice << endl;
 					return; // 경매 참여가 끝났으므로 함수를 바로 끝낸다.

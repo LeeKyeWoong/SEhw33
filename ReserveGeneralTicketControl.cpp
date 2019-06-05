@@ -64,7 +64,7 @@ void ReserveGeneralTicketControl::makeGeneralReservation(string gameDateTime, st
 				//예약 콜렉션에 예약을 추가한다.
 				reservationCollection->addReservation(tempTicket->getSellerId(), memberCollection->currentSession()->getId(),
 					tempTicket->getTicketPrice(), t->getCurrentTime(), tempTicket->getGameDateNTime(),
-					tempTicket->getHomeTeam(), tempTicket->getAwayTeam(), tempTicket->getTicketSeatNum());
+					tempTicket->getHomeTeam(), tempTicket->getAwayTeam(), tempTicket->getTicketSeatNum(),true);
 			}
 			else
 			{
