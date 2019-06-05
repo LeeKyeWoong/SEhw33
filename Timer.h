@@ -4,6 +4,9 @@
 #include <string>
 #include "Ticket.h"
 #include <sstream>
+#include "Reservation.h"
+#include "ReservationCollection.h"
+#include "TicketCollection.h"
 
 using namespace std;
 
@@ -22,4 +25,5 @@ public:
 	bool checkTimeToDeleteTicket(string registerTime);
 	void checkTimeToConvertIntoAuction(Ticket *tk);
 	string returnRemainAuctionTime(Ticket *tk);
+	void changeCanShow(ReservationCollection *reservationCollection, TicketCollection *ticketCollection);
 };

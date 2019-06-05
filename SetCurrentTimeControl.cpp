@@ -1,6 +1,6 @@
 #include "SetCurrentTimeControl.h"
 
-void SetCurrentTimeControl::setCurrentTime(Timer *t, string time, TicketCollection *tc) {
+void SetCurrentTimeControl::setCurrentTime(Timer *t, string time, TicketCollection *tc, ReservationCollection *rc) {
 	// Function: void setCurrentTime(Timer *t, string time, TicketCollection *tc)
 	// Description: 현재시간을 업데이트하도록 timer의 함수인 setCurrentTime을 호출하고, 
 	//						변경된 현재시간에 따라 삭제해야 할 티켓을 찾아 삭제까지 하는 함수이다.
@@ -8,7 +8,7 @@ void SetCurrentTimeControl::setCurrentTime(Timer *t, string time, TicketCollecti
 	// Author: 김승연
 
 	t->setCurrentTime(time);
-
+	t->changeCanShow(rc, tc);
 	int t_count = tc->getTicketCount();
 	for (int i = 0; i < t_count; i++) {
 		string registerDate = tc->getTicket(i)->getTicketRegisterDate();

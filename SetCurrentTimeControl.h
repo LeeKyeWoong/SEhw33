@@ -3,6 +3,7 @@
 #include <string>
 #include "TicketCollection.h"
 #include "Timer.h"
+#include "ReservationCollection.h"
 
 using namespace std;
 
@@ -16,5 +17,5 @@ class SetCurrentTimeControl {
 	// Author: ±è½Â¿¬
 
 public:
-	void setCurrentTime(Timer *t, string time, TicketCollection *tc);
+	void setCurrentTime(Timer *t, string time, TicketCollection *tc, ReservationCollection* rc);
 };

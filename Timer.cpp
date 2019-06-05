@@ -1,5 +1,7 @@
 #include "Timer.h"
-
+#include "ReservationCollection.h"
+#include "TicketCollection.h"
+#include "Ticket.h"
 void Timer::setCurrentTime(string cntTime) {
 	// Function: void setCurrentTime(string cntTime)
 	// Description: 매개변수로 받은 시간을 멤버변수인 currentTime에 저장하는 함수이다.
@@ -158,4 +160,86 @@ string Timer::returnRemainAuctionTime(Ticket* tk) {
 		return "경매참여 불가 티켓";
 	}
 	
+}
+
+void Timer::changeCanShow(ReservationCollection *reservationCollection, TicketCollection *ticketCollection) {
+	// Function: void changeCanShow(ReservationCollection * reservationCollection)
+	// Description: 경기시작 6시간 전이 되면 경매 종료가 되므로 낙찰이 되어서 canShow하고 isSold 하자 
+	// Created: 2019/06/06
+	// Author: 김승연
+
+	int count = reservationCollection->getReservationCount();
+	int ticketCount = ticketCollection->getTicketCount();
+
+	for(int i = 0; i < count; i++) // 모든 예약건에 대해서
+	{
+		Reservation *reservation = reservationCollection->getReservation(i); // 예약정보를 가져온다.
+
+		if (reservation->getCanShow() == false) // 만약에 보여주면 안되는 false인 티켓이다. 즉, 경매가 진행중인 티켓이다.
+		{
+			string gameTime = reservation->getGameDate();
+			string temp_crD, temp_gD, temp_crT, temp_gT;
+			temp_crD.append(currentTime, 0, 4).append(currentTime, 5, 2).append(currentTime, 8, 2);
+			temp_gD.append(gameTime, 0, 4).append(gameTime, 5, 2).append(gameTime, 8, 2);
+			temp_crT.append(currentTime, 11, 2).append(currentTime, 14, 2);
+			temp_gT.append(gameTime, 11, 2).append(gameTime, 14, 2);
+
+			int cD = stoi(temp_crD);
+			int gD = stoi(temp_gD);
+			int cT = stoi(temp_crT);
+			int gT = stoi(temp_gT);
+			int compareDate = gD - cD;
+			int compareTime = gT - cT;
+
+			long long compare = compareDate * 10000 + compareTime;
+			if (compareDate >= 0) {
+
+				if (gT < cT) {
+					compareTime = 2400 + gT - cT;
+				}
+				else compareTime = gT - cT;
+
+				if (compareTime <= 600) { // 경기시작 6시간 전인 경우 경매 종료
+					reservation->setCanShow(true);
+					string sellerid = reservation->getSellerID();
+					string homeTeam = reservation->getHomeTeam();
+					string awayTeam = reservation->getAwayTeam();
+					string time = reservation->getGameDate();
+					string seat = reservation->getSeatNumber();
+					for (int j = 0; j < ticketCount; j++)
+					{
+						if (sellerid.compare(ticketCollection->getTicket(j)->getSellerId()) == 0 &&
+							homeTeam.compare(ticketCollection->getTicket(j)->getHomeTeam())==0 &&
+							awayTeam.compare(ticketCollection->getTicket(j)->getAwayTeam())==0 &&
+							time.compare(ticketCollection->getTicket(j)->getGameDateNTime())==0 &&
+							seat.compare(ticketCollection->getTicket(j)->getTicketSeatNum())==0 )
+						{
+							ticketCollection->getTicket(j)->setReservable(false);
+							break;
+						}
+					}
+				}
+			}
+			else {
+				reservation->setCanShow(true);
+				string sellerid = reservation->getSellerID();
+				string homeTeam = reservation->getHomeTeam();
+				string awayTeam = reservation->getAwayTeam();
+				string time = reservation->getGameDate();
+				string seat = reservation->getSeatNumber();
+				for (int j = 0; j < ticketCount; j++)
+				{
+					if (sellerid.compare(ticketCollection->getTicket(j)->getSellerId()) == 0 &&
+						homeTeam.compare(ticketCollection->getTicket(j)->getHomeTeam()) == 0 &&
+						awayTeam.compare(ticketCollection->getTicket(j)->getAwayTeam()) == 0 &&
+						time.compare(ticketCollection->getTicket(j)->getGameDateNTime()) == 0 &&
+						seat.compare(ticketCollection->getTicket(j)->getTicketSeatNum()) == 0)
+					{
+						ticketCollection->getTicket(j)->setReservable(false);
+						break;
+					}
+				}
+			}
+		}
+	}
 }

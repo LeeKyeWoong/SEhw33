@@ -64,7 +64,7 @@ void searchAutionTicketInterface(TicketCollection* ticketCollection, MemberColle
 void participateAuctionTicketInterface(ReservationCollection* reservationCollection, TicketCollection* ticketCollection, MemberCollection* memberCollection, Timer *timer); //4.4 경매참여 인터페이스
 void checkReservationInterface(ReservationCollection* reservationCollection, MemberCollection* MemberCollection);  //4.5 예약정보 조회 인터페이스
 
-void setCurrentTimeInterface(Timer* timer, TicketCollection* ticketCollection); //5.1 현재시간설정
+void setCurrentTimeInterface(Timer* timer, TicketCollection* ticketCollection, ReservationCollection *reservationCollection); //5.1 현재시간설정
 void changeSessionInterface(MemberCollection* mCollection);  //6.1 Session변경
 
 void guestSession(MemberCollection* p_membercollection); //6.2. gusetSession으로 변경

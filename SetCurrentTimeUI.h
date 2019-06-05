@@ -17,5 +17,5 @@ class SetCurrentTimeUI {
 	// Author: ±è½Â¿¬
 
 public:
-	void startInterface(SetCurrentTimeControl* control, Timer* timer, TicketCollection* ticketCollection);
+	void startInterface(SetCurrentTimeControl* control, Timer* timer, TicketCollection* ticketCollection, ReservationCollection *reservationCollection);
 };

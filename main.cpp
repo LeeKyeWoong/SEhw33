@@ -131,7 +131,7 @@ int main()
 				switch(menu_2) 
 				{
 					case 1: {	 // 5.1. 현재시간 설정
-						setCurrentTimeInterface(&timer, &ticketCollection);
+						setCurrentTimeInterface(&timer, &ticketCollection, &reservationCollection);
 						break;
 					}
 				}	
@@ -308,7 +308,7 @@ void checkReservationInterface(ReservationCollection* reservationCollection, Mem
 }
 
 
-void setCurrentTimeInterface(Timer* timer, TicketCollection* ticketCollection) // 5.1 현재시간설정 인터페이스
+void setCurrentTimeInterface(Timer* timer, TicketCollection* ticketCollection, ReservationCollection *reservationCollection) // 5.1 현재시간설정 인터페이스
 {
 	// Function: void setCurrentTimeInterface(Timer* timer, TicketCollection* TicketCollection, MemberCollection* memberCollection)
 	// Description: 현재시간설정 인터페이스를 호출하는 함수이다.
@@ -319,7 +319,7 @@ void setCurrentTimeInterface(Timer* timer, TicketCollection* ticketCollection) /
 
 	SetCurrentTimeUI userInterface;
 	SetCurrentTimeControl control;
-	userInterface.startInterface(&control, timer, ticketCollection);
+	userInterface.startInterface(&control, timer, ticketCollection, reservationCollection);
 }
 
 

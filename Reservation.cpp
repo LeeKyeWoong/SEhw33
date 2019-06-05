@@ -150,3 +150,12 @@ bool Reservation::getCanShow() {
 
 	return this->canShow;
 }
+
+void Reservation::setCanShow(bool canShow) {
+	// Function: bool setCanShow()
+	// Description: Ãâ·ÂÀ» ÇØµµ µÈ´Ù.
+	// Created: 2019/06/06
+	// Author: ±è½Â¿¬
+
+	this->canShow = canShow;
+}

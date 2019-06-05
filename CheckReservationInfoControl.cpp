@@ -49,7 +49,8 @@ void CheckReservationInfoControl::getReservationInfo(CheckReservationInfoControl
 			{
 				for (int i = 0; i < reservationCount; i++)
 				{
-					if (reservationCollection->getReservation(i)->getBuyerID().compare(memberCollection->currentSession()->getId()) == 0)
+					if (reservationCollection->getReservation(i)->getBuyerID().compare(memberCollection->currentSession()->getId()) == 0 &&
+						(reservationCollection->getReservation(i)->getCanShow() == true))
 					{
 						temp[tempCount++] = reservationCollection->getReservation(i);
 					}

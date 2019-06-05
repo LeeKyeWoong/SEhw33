@@ -36,4 +36,5 @@ public:
 	string getSeatNumber();
 	void deleteReservation();
 	bool getCanShow();
+	void setCanShow(bool canShow);
 };
