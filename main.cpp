@@ -362,6 +362,6 @@ void exitProgram() {  // 7.1 종료 인터페이스
 	// Created: 2019/05/31
 	// Author: 이계웅
 
-	cout << "7.1 종료";
+	cout << "7.1 종료" << endl << endl;
 	exit(0);
 }

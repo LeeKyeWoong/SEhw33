@@ -56,7 +56,7 @@ void RegisterTicketControl::registerNewTicket(int price, string gameDatenTime, s
 				registerTicketDate = timer->getCurrentTime();           // 현재시간을 받는다.
 				if(isLimitedTimeAuction) // 만약 경매 티켓이라면 
 				{
-					ticketType = "A"; // 티켓타입을 옥션으로 한다.
+					//ticketType = "A"; // 티켓타입을 옥션으로 한다.
 				}
 				else
 				{
