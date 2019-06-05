@@ -14,17 +14,17 @@ int main()
 	// Revsions : 
 	// 1. When & Who : 2019/05/30 by ÀÌ°è¿õ
 	//    What : signupInterface() ÇÔ¼ö ±¸Çö
-	// 1. When & Who : 2019/05/31 by ±è½Â¿¬
+	// 2. When & Who : 2019/05/31 by ±è½Â¿¬
 	//    What : setCurrentTimeInterface() ÇÔ¼ö, changeSessionInterface() ÇÔ¼ö ±¸Çö
-	// 1. When & Who : 2019/05/31 by ÀÌ°è¿õ
+	// 3. When & Who : 2019/05/31 by ÀÌ°è¿õ
 	//    What : loginInterface(), logoutInterface(), registerTicketInterface(), exitProgram() ÇÔ¼ö ±¸Çö
-	// 2. When & Who : 2019/06/01 by È«ÁöÀº
+	// 4. When & Who : 2019/06/01 by È«ÁöÀº
 	//    What : searchTicketInterface() ÇÔ¼ö±¸Çö
-	// 3. When & Who : 2019/06/02 by È«ÁöÀº
+	// 5. When & Who : 2019/06/02 by È«ÁöÀº
 	//    What : searchAutionTicketInterface() ÇÔ¼ö, checkReservationInterface()ÇÔ¼ö, reserveGeneralTicketInterface()ÇÔ¼ö ±¸Çö
-	// 1. When & Who : 2019/06/02 by ÀÌ°è¿õ
+	// 6. When & Who : 2019/06/02 by ÀÌ°è¿õ
 	//    What : unregisterInterface() ÇÔ¼ö, checkTicketInterface() ÇÔ¼ö ±¸Çö
-	// 4. When & Who: 2019/06/03 by ±è½Â¿¬
+	// 7. When & Who: 2019/06/03 by ±è½Â¿¬
 	//    What : participateAuctionTicketInterface() ÇÔ¼ö ±¸Çö, guest session º¯°æ ±â´É ±¸Çö
 
 	Member member[MAX];             // ¸â¹ö °´Ã¼ »ý¼º 
@@ -351,7 +351,7 @@ void guestSession(MemberCollection* memcoll)  // 6.2. guest sessionÀ¸·Î º¯°æ
 	else {
 		tmp->setSessionOn(false);
 	}
-	cout << "6.2 Guest SessionÀ¸·Î º¯°æ" << endl;
+	cout << "6.2 guest sessionÀ¸·Î º¯°æ" << endl;
 	cout << endl;
 }
 

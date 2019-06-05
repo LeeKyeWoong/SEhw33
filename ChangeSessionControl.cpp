@@ -35,8 +35,8 @@ void ChangeSessionControl::changeSession(string newID, MemberCollection *mc) {
 		newID = mc->getMember(cntSessionIndex)->getId();
 	}
 
-	cout << "6.1 Session 변경" << endl;
-	cout << ">" << newID << endl;
+	cout << "6.1 session 변경" << endl;
+	cout << "> " << newID << endl;
 	cout << endl;
 
 }

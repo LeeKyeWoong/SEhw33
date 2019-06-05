@@ -30,12 +30,12 @@ void ReserveGeneralTicketUI::reserveGeneralTicket(ReserveGeneralTicketControl* r
 	if (reserveGeneralTicket->getReservedTicket() == NULL)
 	{
 		cout << "4.2. 티켓 예약" << endl;
-		cout << ">" << endl;
+		cout << "> " << endl;
 	}
 	else
 	{
 		cout << "4.2. 티켓 예약" << endl;
-		cout << ">" << reserveGeneralTicket->getReservedTicket()->getTicketPrice() << " "
+		cout << "> " << reserveGeneralTicket->getReservedTicket()->getTicketPrice() << " "
 			<< reserveGeneralTicket->getReservedTicket()->getGameDateNTime() << " "
 			<< reserveGeneralTicket->getReservedTicket()->getHomeTeam()
 			<< " " << reserveGeneralTicket->getReservedTicket()->getAwayTeam() << " "

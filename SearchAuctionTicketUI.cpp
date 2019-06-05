@@ -33,7 +33,7 @@ void SearchAuctionTicketUI::selectAuctionHomeTeam(SearchAuctionTicketControl* se
 		cout << "4.3. 경매 중인 티켓 검색" << endl;
 		for (int i = 0; i < ticketCount; i++)
 		{
-			cout << searchAuctionTicket->getSortedList(i)->getGameDateNTime() << " ";
+			cout << "> " <<searchAuctionTicket->getSortedList(i)->getGameDateNTime() << " ";
 			cout << searchAuctionTicket->getSortedList(i)->getHomeTeam() << " ";
 			cout << searchAuctionTicket->getSortedList(i)->getAwayTeam() << " ";
 			cout << searchAuctionTicket->getSortedList(i)->getTicketSeatNum() << " ";
