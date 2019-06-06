@@ -22,10 +22,10 @@ void SignUpControl::createAccount(string id, string password, string name, strin
 	// Author: 이계웅
 
 	int memberCount = memberCollection->getMemberNumber(); // 갯수를 받아온다.
-
+	this->checkId = true;
 	for (int i = 0; i < memberCount; i++)
 	{
-		if (id.compare(memberCollection->getMember(i)->getId()) == 0) // 문자열이 같으면 0이다.
+		if(id.compare(memberCollection->getMember(i)->getId()) == 0) // 문자열이 같으면 0이다.
 		{
 			this->checkId = false; // 문자열이 같으면 False이다.
 		}
@@ -37,7 +37,7 @@ void SignUpControl::createAccount(string id, string password, string name, strin
 	}
 	else // 문자열이 동일한것이 있다.
 	{
-		// 아무일도 하지 않는다.
+		cout << "> 동일한 ID가 있어서 회원가입을 할 수 없습니다." << endl << endl;
 	}
 	
 }

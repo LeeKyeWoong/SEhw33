@@ -28,6 +28,7 @@ void UnregisterControl::requestUnregister(TicketCollection* ticketCollection, Re
 	if (memberCollection->currentSession() == NULL)
 	{
 		cout << "> 현재 로그인중인 아이디가 없습니다." << endl << endl;
+		exit(0);
 		canUnregister = false;
 	}
 	else
@@ -55,7 +56,8 @@ void UnregisterControl::requestUnregister(TicketCollection* ticketCollection, Re
 			}
 			else // 판매자가 회원 탈퇴를 할 수 없다면.
 			{
-				cout << "> 등록된 미판매 티켓이 존재하여 탈퇴할 수 없습니다." << endl;
+				cout << "> 등록된 미판매 티켓이 존재하여 탈퇴할 수 없습니다." << endl << endl;
+				exit(0);
 			}
 		}
 

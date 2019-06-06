@@ -42,11 +42,15 @@ int main()
 	in_fp = fopen(INPUT_FILE_NAME, "r+");   
 	out_fp = fopen(OUTPUT_FILE_NAME, "w+");
 
+	int menu_1 = 0; // 두 개의 메뉴를 위한 변수 
+	int menu_2 = 0;
+	int prev_menu_1;
+	int prev_menu_2;
+
 	while (1)
 	{
-		// 두 개의 메뉴를 위한 변수 
-		int menu_1 = 0;
-		int menu_2 = 0;
+		prev_menu_1 = menu_1;
+		prev_menu_2 = menu_2;
 
 		// 입력파일에서 메뉴 숫자 2개를 읽기
  		cin >> menu_1 >> menu_2;
@@ -108,16 +112,35 @@ int main()
 						break;
 					}
 					case 2: {   // 4.2. 티켓 예약
-						reserveGeneralTicketInterface(&reservationCollection, &ticketCollection, &memberCollection, &timer);
-						break;
+						if ((prev_menu_1 == 4) && (prev_menu_2 == 1))
+						{
+							reserveGeneralTicketInterface(&reservationCollection, &ticketCollection, &memberCollection, &timer);
+							break;
+						}
+						else
+						{							
+							cout << "> 티켓 검색을 먼저 해야합니다" << endl << endl;
+							exitProgram();
+							break;
+						}
 					}
 					case 3: {   // 4.3. 경매 중인 티켓 검색
 						searchAutionTicketInterface(&ticketCollection, &memberCollection, &timer);
 						break;
 					}
 					case 4: {   // 4.4. 경매 참여
-						participateAuctionTicketInterface(&reservationCollection, &ticketCollection, &memberCollection, &timer);
-						break;
+						if ((prev_menu_1 == 4) && (prev_menu_2 == 3))
+						{
+							participateAuctionTicketInterface(&reservationCollection, &ticketCollection, &memberCollection, &timer);
+							break;
+							
+						}
+						else 
+						{
+							cout << "> 경매 중인 티켓 검색을 먼저 해야합니다" << endl << endl;
+							exitProgram();
+							break;
+						}
 					}
 					case 5: {   // 4.5. 예약 정보 조회
 						checkReservationInterface(&reservationCollection, &memberCollection);
@@ -165,6 +188,13 @@ int main()
 			}
 		}
 		//cout << endl;
+	
+		/*int x = memberCollection.getMemberNumber();
+		for (int i = 0; i < x; i++)
+		{
+		Member* tmp = memberCollection.getMember(i);
+		cout << (tmp->getId()) << tmp->getPassword() << endl << endl;
+		}*/
 	}
 	return 0;
 }
@@ -204,7 +234,7 @@ void loginInterface(MemberCollection* memberCollection) //2.1 로그인 인터페이스
 	//Description: 로그인 하는 인터페이스
 	//Created: 2019/05/31
 	//Author: 이계웅
-
+	
 	LoginUI userInterface;
 	LoginControl control;
 	userInterface.inputLogin(&control, memberCollection);
@@ -347,7 +377,9 @@ void guestSession(MemberCollection* memcoll)  // 6.2. guest session으로 변경
 
 	Member *tmp;
 	tmp = memcoll->currentSession();
-	if (tmp == NULL) {}
+	if (tmp == NULL) {
+		//cout << "> 현재 세션은 존재하지 않습니다." << endl << endl;
+	}
 	else {
 		tmp->setSessionOn(false);
 	}

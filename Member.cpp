@@ -41,7 +41,7 @@ void Member::createMember(string id, string password, string name, string idNum,
 	// Description: 입력받은 값을 받아서 객체를 생성하는 함수
 	// Created: 2019/05/29
 	// Author: 이계웅
-
+	
 	this->id = id;
 	this->password = password;
 	this->name = name;

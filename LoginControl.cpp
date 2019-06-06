@@ -7,9 +7,9 @@
 LoginControl::LoginControl()
 {
 	//Function: LoginControl()
-	//Description: Loginì„ ì‹œë„í•˜ë©° successLogin ë³€ìˆ˜ë¥¼ Falseë¡œ ì´ˆê¸°í™” í•˜ëŠ” í•¨ìˆ˜
+	//Description: LoginÀ» ½ÃµµÇÏ¸ç successLogin º¯¼ö¸¦ False·Î ÃÊ±âÈ­ ÇÏ´Â ÇÔ¼ö
 	//Created: 2019/05/31
-	//Author: ì´ê³„ì›…
+	//Author: ÀÌ°è¿õ
 
 	this->successLogin = false;
 }
@@ -17,33 +17,34 @@ LoginControl::LoginControl()
 void LoginControl::requestLogin(string id, string password, MemberCollection* memberCollection)
 {
 	//Function: requestLogin(string id, string password, MemberCollection* memberCollection)
-	//Description: ìž…ë ¥ë°›ì€ id ë° passwordê°€ MemberCollectionì— ìžˆëŠ”ì§€ í™•ì¸í•˜ì—¬ Loginì„ ì‹œë„í•œë‹¤
+	//Description: ÀÔ·Â¹ÞÀº id ¹× password°¡ MemberCollection¿¡ ÀÖ´ÂÁö È®ÀÎÇÏ¿© LoginÀ» ½ÃµµÇÑ´Ù
 	//Created: 2019/05/31
-	//Author: ì´ê³„ì›…
+	//Author: ÀÌ°è¿õ
 
-	int memberCount = memberCollection->getMemberNumber(); // memberCollectionì—ì„œ ë©¤ë²„ìˆ˜ë¥¼ ë°›ëŠ”ë‹¤.
+	int memberCount = memberCollection->getMemberNumber(); // memberCollection¿¡¼­ ¸â¹ö¼ö¸¦ ¹Þ´Â´Ù.
 	
-	for (int i = 0; i < memberCount; i++) // ë©¤ë²„ìˆ˜ë§Œí¼ ë°˜ë³µë¬¸ì„ ëŒë¦°ë‹¤.
+	for (int i = 0; i < memberCount; i++) // ¸â¹ö¼ö¸¸Å­ ¹Ýº¹¹®À» µ¹¸°´Ù.
 	{
-		if ((memberCollection->getMember(i)->getId().compare(id) == 0) && // ì•„ì´ë””ë¥¼ ë¹„êµí•œë‹¤. ê°™ìœ¼ë©´ 0 
-		    (memberCollection->getMember(i)->getPassword().compare(password) == 0)) // ë¹„ë°€ë²ˆí˜¸ë¥¼ ë¹„êµí•œë‹¤. ê°™ìœ¼ë©´ 0
+		if ((memberCollection->getMember(i)->getId().compare(id) == 0) && // ¾ÆÀÌµð¸¦ ºñ±³ÇÑ´Ù. °°À¸¸é 0 
+		    (memberCollection->getMember(i)->getPassword().compare(password) == 0)) // ºñ¹Ð¹øÈ£¸¦ ºñ±³ÇÑ´Ù. °°À¸¸é 0
 		{
-			this->successLogin = true; // ë‘˜ ë‹¤ ë§žëŠ” ê²ƒì´ ìžˆë‹¤ë©´ trueë¡œ í•´ì¤€ë‹¤.
+			this->successLogin = true; // µÑ ´Ù ¸Â´Â °ÍÀÌ ÀÖ´Ù¸é true·Î ÇØÁØ´Ù.
 			memberCollection->getMember(i)->setSessionOn(true);
 		}
-		else
-		{
-			memberCollection->getMember(i)->setSessionOn(false);
-		}
+	}
+	if (this->successLogin != true)
+	{
+		cout << "> ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù." << endl << endl;
+		exit(0);
 	}
 }
 
 bool LoginControl::getSuccessLogin()
 {
 	//Function: LoginControl()
-	//Description: Login ì„±ê³µ ì—¬ë¶€ë¥¼ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
+	//Description: Login ¼º°ø ¿©ºÎ¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
 	//Created: 2019/05/31
-	//Author: ì´ê³„ì›…
+	//Author: ÀÌ°è¿õ
 
 	return this->successLogin;
 }

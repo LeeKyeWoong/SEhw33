@@ -41,8 +41,8 @@ void MemberCollection::deleteMember(int deleteMemberIndex)
 		this->member[deleteMemberIndex] = this->member[deleteMemberIndex + 1];
 	}
 	
-	this->member[this->memberNumber - 1]->deleteMember(); // 마지막에 있는 Member지우고 
-	this->memberNumber--;           
+	this->member[(this->memberNumber)-1]->deleteMember(); // 마지막에 있는 Member지우고 
+	this->memberNumber--;
 }
 
 Member* MemberCollection::getMember(int memberIndex)
