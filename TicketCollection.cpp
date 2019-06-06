@@ -56,15 +56,15 @@ void TicketCollection::deleteTicket(int deleteTicketIndex)
 	this->ticketList[num] = NULL;
 }
 
-void TicketCollection::addTicket(int price, string gameDatenTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sid, string registerTicketDate, string ticketType) // TicketList에 티켓등록한다.
+void TicketCollection::addTicket(int price, string gameDatenTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sellerId, string registerTicketDate, string ticketType) // TicketList에 티켓등록한다.
 {
-	//Function: addTicket(int price, string gameDatenTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sid, string registerTicketDate, string ticketType)
+	//Function: addTicket(int price, string gameDatenTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sellerId, string registerTicketDate, string ticketType)
 	//Description: 티켓 추가
 	//Created: 2019/5/30
 	//Author: 홍지은
 
 	int currenTicketCount = this->getTicketCount();
-	this->ticketList[currenTicketCount]->addNewTicket(price, gameDatenTime, homeTeam, awayTeam, seatNum, isLimitedTimeAuction, isSold, sid, registerTicketDate, ticketType);
+	this->ticketList[currenTicketCount]->addNewTicket(price, gameDatenTime, homeTeam, awayTeam, seatNum, isLimitedTimeAuction, isSold, sellerId, registerTicketDate, ticketType);
 	this->increaseTicketCount();
 }
 

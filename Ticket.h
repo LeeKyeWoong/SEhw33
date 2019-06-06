@@ -19,7 +19,7 @@ private:
 	
 	bool isSold; //팔렸는지의 여부
 	bool canSell; // 판매가능한 기간인지에 대한 여부
-	string sid; //seller의 ID
+	string sellerId; //seller의 ID
 	string registerTicketDate; //티켓 등록 날짜 -> 등록한지 1년이 지난 티켓 비교를 위함
 	string ticketType; //티켓의 타입 -> 일반인지 경매인지
 	
@@ -27,7 +27,7 @@ private:
 public:
 	Ticket(); //생성자
 	void addNewTicket(int price, string gameDateNTime, string homeTeam, string awayTeam, string seatNum,
-		bool isLimitedTimeAuction, bool isSold, string sid, string registerTicketDate, string ticketType ); //티켓 생성
+		bool isLimitedTimeAuction, bool isSold, string sellerId, string registerTicketDate, string ticketType ); //티켓 생성
 	void removeTicket();
 
 	bool getReservable(); //티켓이 예약되었는지의 여부 확인

@@ -25,7 +25,7 @@ void RegisterTicketControl::registerNewTicket(int price, string gameDatenTime, s
 	// Author: 이계웅
 
 	bool isSold;
-	string sid;
+	string sellerId;
 	string registerTicketDate;
 	string ticketType;
 
@@ -52,7 +52,7 @@ void RegisterTicketControl::registerNewTicket(int price, string gameDatenTime, s
 			if(this->checkRegister) // 등록할 수 있다면 
 			{
 				isSold = false;											// 판매여부는 false로 한다.
-				sid = memberCollection->currentSession()->getId(); 		// 아이디를 받는다.
+				sellerId = memberCollection->currentSession()->getId(); 		// 아이디를 받는다.
 				registerTicketDate = timer->getCurrentTime();           // 현재시간을 받는다.
 				if(isLimitedTimeAuction) // 만약 경매 티켓이라면 
 				{
@@ -62,7 +62,7 @@ void RegisterTicketControl::registerNewTicket(int price, string gameDatenTime, s
 				{
 					ticketType = "G"; // 티켓타입을 일반티켓으로 한다.
 				}
-				ticketCollection->addTicket(price, gameDatenTime, homeTeam, awayTeam, seatNum, isLimitedTimeAuction, isSold, sid, registerTicketDate, ticketType);  // TicketList에 티켓등록
+				ticketCollection->addTicket(price, gameDatenTime, homeTeam, awayTeam, seatNum, isLimitedTimeAuction, isSold, sellerId, registerTicketDate, ticketType);  // TicketList에 티켓등록
 			}
 			else // 날짜,홈팀, 어웨이팀,날짜시간 모두 겹치는 것이 없다.
 			{

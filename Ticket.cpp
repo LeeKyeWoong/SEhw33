@@ -14,7 +14,7 @@ Ticket::Ticket()
 	//Author: 홍지은
 
 
-	this->sid = "";
+	this->sellerId = "";
 	this->homeTeam = "";
 	this->awayTeam = "";
 	this->price = 0;
@@ -27,9 +27,9 @@ Ticket::Ticket()
 	this->canSell = true;
 }
 
-void Ticket::addNewTicket(int price, string gameDateNTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sid, string registerTicketDate, string ticketType )
+void Ticket::addNewTicket(int price, string gameDateNTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sellerId, string registerTicketDate, string ticketType )
 {
-	//Function: addNewTicket(int price, string gameDateNTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sid, string registerTicketDate, string ticketType )
+	//Function: addNewTicket(int price, string gameDateNTime, string homeTeam, string awayTeam, string seatNum, bool isLimitedTimeAuction, bool isSold, string sellerId, string registerTicketDate, string ticketType )
 	//Description: 새로운 티켓을 추가한다.
 	//Created: 2019/5/28
 	//Author: 홍지은
@@ -41,7 +41,7 @@ void Ticket::addNewTicket(int price, string gameDateNTime, string homeTeam, stri
 	this->seatNum = seatNum;
 	this->isLimitedTimeAuction = isLimitedTimeAuction;
 	this->isSold = false; //새로 들어온 티켓은 아직 팔리지 않은상태!
-	this->sid = sid;	
+	this->sellerId = sellerId;
 	this->registerTicketDate = registerTicketDate;
 	this->ticketType = ticketType;
 }
@@ -61,7 +61,7 @@ void Ticket::removeTicket()
 	this->isLimitedTimeAuction = false; //경매여부
 	this->isSold = false; //팔렸는지
 	this->canSell = true; //경매 판매 가능기간인지
-	this->sid = ""; //판매자 아이디
+	this->sellerId = ""; //판매자 아이디
 	this->registerTicketDate = ""; //등록날짜
 	this->ticketType = ""; //티켓타입
 }
@@ -97,7 +97,7 @@ string Ticket::getSellerId()
 	//Created: 2019/5/28
 	//Author: 홍지은
 
-	return this->sid;
+	return this->sellerId;
 }
 
 string Ticket::getHomeTeam()
