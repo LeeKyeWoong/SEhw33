@@ -30,6 +30,7 @@ void LoginControl::requestLogin(string id, string password, MemberCollection* me
 		{
 			this->successLogin = true; // 둘 다 맞는 것이 있다면 true로 해준다.
 			memberCollection->getMember(i)->setSessionOn(true);
+			break;
 		}
 	}
 	if (this->successLogin != true)

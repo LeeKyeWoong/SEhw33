@@ -127,6 +127,41 @@ bool Member::getSessionOn()
 	return this->sessionOn;
 }
 
+void Member::setId(string id) {
+	// Function: setId(string id)
+	// Description: Id¸¦ ¼³Á¤ÇÏ´Â ÇÔ¼ö
+	// Created: 2019/06/06
+	// Author: ±è½Â¿¬
+
+	this->id = id;
+}
+
+void Member::setPassword(string pw) {
+	// Function: setPassword(string pw)
+	// Description: password¸¦ ¼³Á¤ÇÏ´Â ÇÔ¼ö
+	// Created: 2019/06/06
+	// Author: ±è½Â¿¬
+
+	this->password = pw;
+}
+
+void Member::setName(string n) {
+	// Function: setName(string n)
+	// Description: NameÀ» ¼³Á¤ÇÏ´Â ÇÔ¼ö
+	// Created: 2019/06/06
+	// Author: ±è½Â¿¬
+
+	this->name = n;
+}
+void Member::setIdNum(string idnum) {
+	// Function: setIdNum(string idnum)
+	// Description: IdNumÀ» ¼³Á¤ÇÏ´Â ÇÔ¼ö
+	// Created: 2019/06/06
+	// Author: ±è½Â¿¬
+
+	this->idNum = idnum;
+}
+
 void Member::setMemType(string memType)
 {
 	// Function: setMemType(string memType)

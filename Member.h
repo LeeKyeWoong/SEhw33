@@ -35,7 +35,10 @@ public:
 	string getIdNum();     // 주민번호를 얻는 함수
 	string getMemType();   // 회원 타입(판매자, 구매자)를 얻는 함수
 	bool getSessionOn();   // 로그인 여부를 얻는 함수
-
+	void setId(string id);
+	void setPassword(string pw);
+	void setName(string n);
+	void setIdNum(string idnum);
 	void setMemType(string memType);    // 회원 타입을 Set하는 함수
 	void setSessionOn(bool sessionOn);  // 로그인 여부를 Set하는 함수
 };

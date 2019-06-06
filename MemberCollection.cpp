@@ -34,11 +34,17 @@ void MemberCollection::deleteMember(int deleteMemberIndex)
 	//Created: 2019/05/30
 	//Author: 이계웅
 	
-	this->member[deleteMemberIndex]->deleteMember(); // string을 ""으로 만든다.
+	this->member[deleteMemberIndex]->deleteMember(); // 회원 정보를 삭제한다.
 
 	for(int i = deleteMemberIndex; i < (this->memberNumber - 1); i++) // 한칸씩 당긴다.
 	{
-		this->member[deleteMemberIndex] = this->member[deleteMemberIndex + 1];
+//		this->member[deleteMemberIndex] = this->member[deleteMemberIndex + 1];
+		this->member[deleteMemberIndex]->setId(this->member[deleteMemberIndex + 1]->getId());
+		this->member[deleteMemberIndex]->setPassword(this->member[deleteMemberIndex + 1]->getPassword());
+		this->member[deleteMemberIndex]->setIdNum(this->member[deleteMemberIndex + 1]->getIdNum());
+		this->member[deleteMemberIndex]->setName(this->member[deleteMemberIndex + 1]->getName());
+		this->member[deleteMemberIndex]->setMemType(this->member[deleteMemberIndex + 1]->getMemType());
+		this->member[deleteMemberIndex]->setSessionOn(this->member[deleteMemberIndex + 1]->getSessionOn());
 	}
 	
 	this->member[(this->memberNumber)-1]->deleteMember(); // 마지막에 있는 Member지우고 

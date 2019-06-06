@@ -40,7 +40,7 @@ bool Timer::checkTimeToDeleteTicket(string registerTime) {
 	티켓 삭제는 등록된 지 1년 지났을 때 이루어지기 때문에, 현재시간과 티켓 등록 시간의 차이가 10000 이상이 되는 경우 삭제하면 된다.
 	*/
 	if (registerTime == "") {
-		cout << "error: 티켓 등록 날짜가 설정되어있지 않습니다. ""6.1 현재시간 설정""을 먼저한 후 티켓 등록을 해주세요!" << endl;
+		cout << "error: 티켓 등록 날짜가 설정되어있지 않습니다. ""5.1 현재시간 설정""을 먼저한 후 티켓 등록을 해주세요!" << endl;
 		return false;
 	}
 	else {
